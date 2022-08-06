@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: "/.js$/",
+        test: /.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -36,4 +36,8 @@ module.exports = {
       protectWebpackAssets: false,
     }),
   ],
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
 };

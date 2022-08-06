@@ -24,3 +24,17 @@ app.listen(8080, function () {
 app.get("/test", function (req, res) {
   res.send(mockAPIResponse);
 });
+
+// Respond with JS object when a GET request is made to the homepage
+app.post("/addData", addData);
+
+function addData(req, res) {
+  projectData["sentence_list"] = req.body.sentence_list;
+  res.send(projectData);
+}
+
+app.get("/all", getAll);
+
+function getAll(req, res) {
+  res.send(projectData);
+}

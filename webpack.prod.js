@@ -8,7 +8,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: "/.js$/",
+        test: /.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -24,4 +24,8 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
 };
