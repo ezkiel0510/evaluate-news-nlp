@@ -12,3 +12,26 @@ section {
     max-width: 800px;
     margin: 50px auto;
 }
+
+#sentiment-results {
+    .object {
+        padding: 16px;
+        font-weight: bold;
+        margin: 0 8px 0 8px;
+        border-radius: 3px;
+        background: #0ff;
+    }
+
+    .sentiment-wrapper {
+        display: flex;
+        padding: 8px;
+    }
+
+    .agreement {
+        background: #0f0;
+    }
+
+    .disagreement {
+        background: #f00;
+    }
+}

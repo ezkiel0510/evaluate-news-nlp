@@ -1,3 +1,5 @@
+import { createSentimentTag, createSentimentTags } from "./helper";
+
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1";
 const apiKey = "d87ffc82ec9f0103fb3e50c4d3f37866";
 
@@ -71,10 +73,7 @@ const updateUI = async () => {
   const res = await fetch("/all");
   try {
     const data = await res.json();
-    console.log("data :>> ", data);
-    data.score_tag
-      ? (document.getElementById("results").innerHTML = data.score_tag)
-      : (document.getElementById("results").innerHTML = "");
+    createSentimentTags(data.agreement, data.score_tag, data.confidence);
   } catch (error) {
     console.log("error", error);
   }
