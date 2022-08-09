@@ -1,12 +1,27 @@
-import { createSentimentTag, createSentimentTags } from "./helper";
+import { createSentimentTags } from "./helper";
 
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1";
 const apiKey = "d87ffc82ec9f0103fb3e50c4d3f37866";
 
+function validateForm(e) {
+  e.preventDefault();
+  let sentence = document.forms["sentence-form"]["sentence-input"].value;
+  const regex = /^[a-zA-Z0-9 .']+$/;
+  if (sentence == "") {
+    window.alert("Sentence must be filled out");
+    return false;
+  }
+  if (!regex.test(sentence)) {
+    window.alert("Sentence contains invalid character(s)");
+    return false;
+  }
+  generateSentiment();
+  return true;
+}
+
 function generateSentiment() {
   const text = document.getElementById("text").value;
   getSentiment(baseURL, text, apiKey).then(function (data) {
-    console.log("data :>> ", data);
     postData("/addData", {
       ...data,
     });
@@ -46,9 +61,9 @@ const getSentiment = async (sentimentURL, text, key) => {
   }
 };
 
-function handleSubmit(event) {
-  event.preventDefault();
-  generateSentiment();
+function handleSubmit(e) {
+  e.preventDefault();
+  validateForm(e);
 }
 
 const postData = async (url = "", data = {}) => {

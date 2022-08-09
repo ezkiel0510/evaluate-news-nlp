@@ -7,17 +7,21 @@
 
   <body>
     <header>
-      <div class="">Eveluate News NLP</div>
+      <div class="">Sentiment Analysis</div>
       <div class=""></div>
     </header>
 
     <main>
       <section>
-        <form class="" onsubmit="return Client.handleSubmit(e)">
+        <form
+          class=""
+          onsubmit="return Client.handleSubmit(e)"
+          name="sentence-form"
+        >
           <input
             id="text"
             type="text"
-            name="input"
+            name="sentence-input"
             value=""
             placeholder="Please input a sentence"
           />
@@ -40,7 +44,17 @@
     </main>
 
     <footer>
-      <p>This is a footer</p>
+      <div class="">thiendc1@fsoft.com.vn</div>
+      <div class="">Project 4 - Udacity course Front End Web Developer</div>
     </footer>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
   </body>
 </html>
