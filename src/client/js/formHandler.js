@@ -6,7 +6,7 @@ const apiKey = "d87ffc82ec9f0103fb3e50c4d3f37866";
 function validateForm(e) {
   e.preventDefault();
   let sentence = document.forms["sentence-form"]["sentence-input"].value;
-  const regex = /^[a-zA-Z0-9 .']+$/;
+  const regex = /^[a-zA-Z0-9 .,']+$/;
   if (sentence == "") {
     window.alert("Sentence must be filled out");
     return false;

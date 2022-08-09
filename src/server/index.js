@@ -1,6 +1,6 @@
 projectData = {};
-// const dotenv = require("dotenv");
-// dotenv.config();
+const dotenv = require("dotenv");
+dotenv.config();
 var path = require("path");
 const express = require("express");
 const mockAPIResponse = require("./mockAPI.js");
@@ -28,7 +28,11 @@ app.get("/", function (req, res) {
 
 // designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
-  console.log("Example app listening on port 8080!");
+  console.log("Production listening on port 8080!");
+});
+
+app.listen(9000, function () {
+  console.log("Development listening on port 9000!");
 });
 
 app.get("/test", function (req, res) {

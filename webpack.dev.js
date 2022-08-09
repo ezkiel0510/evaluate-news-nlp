@@ -40,4 +40,7 @@ module.exports = {
     libraryTarget: "var",
     library: "Client",
   },
+  devServer: {
+    port: 9000,
+  },
 };
